@@ -1,3 +1,11 @@
+<#
+    Simple method of searching for text in multiple files
+    Works well if/when Windows Explorer search fails to do so
+    Path is set to c:\temp, but can have user input instead
+    Outputs the search results along with the file path in to a CSV
+#>
+
+
 #$path = Read-Host "Select path to search in"
 $path = "C:\Temp\"
 Set-Location -Path $path

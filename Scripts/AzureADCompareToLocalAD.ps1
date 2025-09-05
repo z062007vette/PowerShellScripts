@@ -1,3 +1,11 @@
+<#
+    Pre MS Graph era, kept for historical reasons
+
+    Intetion was to compare local AD to Azure AD on some value
+    Never completed as we found another way
+#>
+
+
 #try to connec to Azure first. Don't prompt again if already logged in
 if($x -ne 1){
     Connect-AzureAD
@@ -49,6 +57,6 @@ elseif($toRun -eq "error"){
 }
 #really bad error context
 else{
-    Write-Host "Things really broke if we made"
+    Write-Host "Things really broke if we made it here"
 }
 

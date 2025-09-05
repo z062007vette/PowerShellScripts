@@ -1,4 +1,9 @@
-#This is going to clear up temp directories. 
+<#
+    A simple script that will clear out temp files and the recycle bin for the local user
+    Can be run as a user account or as an administrator
+#>
+
+
 Write-Host "Clearing env temp directories"
 
 Write-Host "clearing $env:TEMP"

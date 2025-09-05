@@ -1,3 +1,7 @@
+<# 
+    Gets the login ID of a user based on their email
+#>
+
 $csvList = Import-Csv -Path 'C:\temp\Email.csv' 
 $outputCSVList = 'C:\temp\Email-ID.csv'
 $domainForest = (Get-ADForest).domains 

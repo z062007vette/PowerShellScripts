@@ -1,4 +1,10 @@
-﻿$file = Import-Csv -Path "D:\MyShareID.csv"
+﻿<#
+    This would query the local domain and alternate domains if the user wasn't in the primary. 
+    Outputs the data wanted, at the time for local OneDrive before it moved to the cloud.
+    This would warn us of users with more data than Cloud OneDrive could handle at the time
+#>
+
+$file = Import-Csv -Path "D:\MyShareID.csv"
 $outfile = "D:\MyShareIDADExport.csv"
 $x = 0
 
@@ -8,23 +14,23 @@ foreach ($line in $file){
     $person = Get-ADUser -Filter {SamAccountName -like $ID} -Properties mail,GivenName,Surname,enabled,UserPrincipalName,extensionAttribute14,lastLogonTimestamp
 
     if([string]::IsNullOrEmpty($person)){
-        $person = Get-ADUser -Filter {SamAccountName -like $ID} -Properties mail,GivenName,Surname,enabled,UserPrincipalName,extensionAttribute14,lastLogonTimestamp -Server ""
+        $person = Get-ADUser -Filter {SamAccountName -like $ID} -Properties mail,GivenName,Surname,enabled,UserPrincipalName,extensionAttribute14,lastLogonTimestamp -Server "1.alt.domain.com"
     }
 
     if([string]::IsNullOrEmpty($person)){
-        $person = Get-ADUser -Filter {SamAccountName -like $ID} -Properties mail,GivenName,Surname,enabled,UserPrincipalName,extensionAttribute14,lastLogonTimestamp -Server ""
+        $person = Get-ADUser -Filter {SamAccountName -like $ID} -Properties mail,GivenName,Surname,enabled,UserPrincipalName,extensionAttribute14,lastLogonTimestamp -Server "2.alt.domain.com"
     }
 
     if([string]::IsNullOrEmpty($person)){
-        $person = Get-ADUser -Filter {SamAccountName -like $ID} -Properties mail,GivenName,Surname,enabled,UserPrincipalName,extensionAttribute14,lastLogonTimestamp -Server ""
+        $person = Get-ADUser -Filter {SamAccountName -like $ID} -Properties mail,GivenName,Surname,enabled,UserPrincipalName,extensionAttribute14,lastLogonTimestamp -Server "3.alt.domain.com"
     }
 
     if([string]::IsNullOrEmpty($person)){
-        $person = Get-ADUser -Filter {SamAccountName -like $ID} -Properties mail,GivenName,Surname,enabled,UserPrincipalName,extensionAttribute14,lastLogonTimestamp -Server ""
+        $person = Get-ADUser -Filter {SamAccountName -like $ID} -Properties mail,GivenName,Surname,enabled,UserPrincipalName,extensionAttribute14,lastLogonTimestamp -Server "4.alt.domain.com"
     }
 
     if([string]::IsNullOrEmpty($person)){
-        $person = Get-ADUser -Filter {SamAccountName -like $ID} -Properties mail,GivenName,Surname,enabled,UserPrincipalName,extensionAttribute14,lastLogonTimestamp -Server ""
+        $person = Get-ADUser -Filter {SamAccountName -like $ID} -Properties mail,GivenName,Surname,enabled,UserPrincipalName,extensionAttribute14,lastLogonTimestamp -Server "5.alt.domain.com"
     }
 
     $timeStampConvert = [datetime]::FromFileTime($person.lastLogonTimestamp)

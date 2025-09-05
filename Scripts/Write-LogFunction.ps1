@@ -1,5 +1,7 @@
 <#
-    A good write-log function that was given to me. I'm not the original creator, but have used it in a good number of script 
+    A good write-log function that was given to me. I'm not the original creator, but have used it in a number of script 
+    Write out the message you want to a variable (prevents potential formatting issues). Be sure to convert any non-string
+    values to a string. If you pass an object, it will write some of the object, not the values within. 
 #>
 
 function Write-Log
@@ -75,6 +77,8 @@ function Write-Log
     {
     }
 }
+
+#Example of how to set the path and message to be written
 
 $outPath = "output.log" #can also be a txt file
 $msg = "This is what is written to the log"

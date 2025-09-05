@@ -1,4 +1,9 @@
-﻿$file = Import-Csv -Path "D:\System_accounts.csv"
+﻿<#
+    Similar to GetADUserAllDomains.ps1, but was looking for an extension attribute 14
+    This was a custom field for non-default Azure information. 
+#>
+
+$file = Import-Csv -Path "D:\System_accounts.csv"
 $outfile = "D:\System_accounts_status.csv"
 $x = 0
 

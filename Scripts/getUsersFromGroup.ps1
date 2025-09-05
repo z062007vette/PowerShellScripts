@@ -1,3 +1,7 @@
+<# 
+    Out put all users from a group, strips some domain information out
+#>
+
 $userOrGroup = Read-Host -Prompt "ID or Group"
 
 try{
